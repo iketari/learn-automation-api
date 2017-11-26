@@ -21,6 +21,7 @@ class BuildController {
     let payload = {};
 
     try {
+        console.log(req.body.payload);
         payload = JSON.parse(req.body.payload);
     } catch (error) {
         res.status(BAD_REQUEST).send(error);

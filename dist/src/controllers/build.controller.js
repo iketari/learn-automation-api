@@ -69,6 +69,7 @@ var BuildController = /** @class */ (function () {
                         _a = req.body, name = _a.name, travis_id = _a.travis_id, number = _a.number;
                         payload = {};
                         try {
+                            console.log(req.body.payload);
                             payload = JSON.parse(req.body.payload);
                         }
                         catch (error) {
