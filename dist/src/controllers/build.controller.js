@@ -62,12 +62,20 @@ var BuildController = /** @class */ (function () {
     };
     BuildController.prototype.create = function (req, res, next) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, name, travis_id, number, build, _b, _c, error_1;
+            var _a, name, travis_id, number, payload, build, _b, _c, error_1;
             return __generator(this, function (_d) {
                 switch (_d.label) {
                     case 0:
                         _a = req.body, name = _a.name, travis_id = _a.travis_id, number = _a.number;
-                        build = new models_1.buildModel({ name: name, travis_id: travis_id, number: number, request: req.body });
+                        payload = {};
+                        try {
+                            payload = JSON.parse(req.body.payload);
+                        }
+                        catch (error) {
+                            res.status(http_status_codes_1.BAD_REQUEST).send(error);
+                            return [2 /*return*/];
+                        }
+                        build = new models_1.buildModel({ name: name, travis_id: travis_id, number: number, payload: payload });
                         _d.label = 1;
                     case 1:
                         _d.trys.push([1, 3, , 4]);

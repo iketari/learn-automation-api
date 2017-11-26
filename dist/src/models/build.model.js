@@ -6,7 +6,7 @@ var buildSchema = new mongoose_1.Schema({
     travis_id: { required: false, type: mongoose_1.Schema.Types.Number, unique: true },
     name: { required: false, type: mongoose_1.Schema.Types.String },
     number: { required: false, type: mongoose_1.Schema.Types.Number },
-    request: { required: false, type: Object }
+    payload: { required: false, type: Object }
 }, { timestamps: true });
 exports.buildModel = mongoose_2.model("Build", buildSchema);
 //# sourceMappingURL=build.model.js.map
