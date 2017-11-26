@@ -17,12 +17,14 @@ class BuildController {
   }
 
   public async create(req: Request, res: Response, next: NextFunction) {
-    const { name, number } = req.body.payload;
-    const travis_id = req.body.payload.id;
+    const payload = req.body.payload;
+    const { state, status, result, number, id } = payload;
 
     const build = new buildModel({
-        name,
-        travis_id,
+        state,
+        status,
+        result,
+        travis_id: id,
         number,
         payload: req.body.payload
     });
