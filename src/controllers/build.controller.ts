@@ -17,18 +17,15 @@ class BuildController {
   }
 
   public async create(req: Request, res: Response, next: NextFunction) {
-    const { name, travis_id, number } = req.body;
-    let payload = {};
+    const { name, number } = req.body.payload;
+    const travis_id = req.body.payload.id;
 
-    try {
-        console.log(req.body.payload);
-        payload = JSON.parse(req.body.payload);
-    } catch (error) {
-        res.status(BAD_REQUEST).send(error);
-        return;
-    }
-
-    const build = new buildModel({ name, travis_id, number, payload });
+    const build = new buildModel({
+        name,
+        travis_id,
+        number,
+        payload: req.body.payload
+    });
 
     try {
       res.json(await build.save());
