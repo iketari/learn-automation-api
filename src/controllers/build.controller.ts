@@ -18,7 +18,8 @@ class BuildController {
 
   public async create(req: Request, res: Response, next: NextFunction) {
     const { name, travis_id, number } = req.body;
-    const build = new buildModel({ name, travis_id, number });
+
+    const build = new buildModel({ name, travis_id, number, request: req.body });
 
     try {
       res.json(await build.save());

@@ -67,7 +67,7 @@ var BuildController = /** @class */ (function () {
                 switch (_d.label) {
                     case 0:
                         _a = req.body, name = _a.name, travis_id = _a.travis_id, number = _a.number;
-                        build = new models_1.buildModel({ name: name, travis_id: travis_id, number: number });
+                        build = new models_1.buildModel({ name: name, travis_id: travis_id, number: number, request: req.body });
                         _d.label = 1;
                     case 1:
                         _d.trys.push([1, 3, , 4]);

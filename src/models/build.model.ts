@@ -14,9 +14,10 @@ export interface IBuild extends Document {
 
 const buildSchema = new Schema(
   {
-    travis_id: { required: true, type: Schema.Types.Number, unique: true },
-    name: { required: true, type: Schema.Types.String },
-    number: { required: true, type: Schema.Types.Number }
+    travis_id: { required: false, type: Schema.Types.Number, unique: true },
+    name: { required: false, type: Schema.Types.String },
+    number: { required: false, type: Schema.Types.Number },
+    request: { required: false, type: Object }
   },
   { timestamps: true }
 );
