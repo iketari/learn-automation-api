@@ -50,25 +50,25 @@ export class Server {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(validator());
 
-    // Session
-    const MongoStore = connectMongo(session);
-    app.use(
-      session({
-        resave: false,
-        saveUninitialized: true,
-        secret: "secret",
-        store: new MongoStore({
-          mongooseConnection: mongoose.connection
-        })
-      })
-    );
-
-    await import("../config/acl");
-    await import("../config/passport");
-
-    
-    app.use(passport.initialize());
-    app.use(passport.session());
+    // // Session
+    // const MongoStore = connectMongo(session);
+    // app.use(
+    //   session({
+    //     resave: false,
+    //     saveUninitialized: true,
+    //     secret: "secret",
+    //     store: new MongoStore({
+    //       mongooseConnection: mongoose.connection
+    //     })
+    //   })
+    // );
+    //
+    // await import("../config/acl");
+    // await import("../config/passport");
+    //
+    //
+    // app.use(passport.initialize());
+    // app.use(passport.session());
 
     let route = "/api";
     if (node.env === "development") {
