@@ -68,7 +68,7 @@ var BuildController = /** @class */ (function () {
                     case 0:
                         payload = req.body.payload;
                         state = payload.state, status = payload.status, result = payload.result, number = payload.number, id = payload.id;
-                        console.log(payload);
+                        console.log(state, status, result, number, id);
                         build = new models_1.buildModel({
                             state: state,
                             status: status,
