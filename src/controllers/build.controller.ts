@@ -18,7 +18,7 @@ class BuildController {
 
   public async create(req: Request, res: Response, next: NextFunction) {
     const payload = req.body.payload;
-    const { state, status, result, number, id } = payload;
+    const { state, status, result, number, id } = JSON.parse(payload);
 
     console.log(state, status, result, number, id);
 

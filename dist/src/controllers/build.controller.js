@@ -62,12 +62,12 @@ var BuildController = /** @class */ (function () {
     };
     BuildController.prototype.create = function (req, res, next) {
         return __awaiter(this, void 0, void 0, function () {
-            var payload, state, status, result, number, id, build, _a, _b, error_1;
-            return __generator(this, function (_c) {
-                switch (_c.label) {
+            var payload, _a, state, status, result, number, id, build, _b, _c, error_1;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
                     case 0:
                         payload = req.body.payload;
-                        state = payload.state, status = payload.status, result = payload.result, number = payload.number, id = payload.id;
+                        _a = JSON.parse(payload), state = _a.state, status = _a.status, result = _a.result, number = _a.number, id = _a.id;
                         console.log(state, status, result, number, id);
                         build = new models_1.buildModel({
                             state: state,
@@ -77,16 +77,16 @@ var BuildController = /** @class */ (function () {
                             number: number,
                             payload: req.body.payload
                         });
-                        _c.label = 1;
+                        _d.label = 1;
                     case 1:
-                        _c.trys.push([1, 3, , 4]);
-                        _b = (_a = res).json;
+                        _d.trys.push([1, 3, , 4]);
+                        _c = (_b = res).json;
                         return [4 /*yield*/, build.save()];
                     case 2:
-                        _b.apply(_a, [_c.sent()]);
+                        _c.apply(_b, [_d.sent()]);
                         return [3 /*break*/, 4];
                     case 3:
-                        error_1 = _c.sent();
+                        error_1 = _d.sent();
                         res.status(http_status_codes_1.BAD_REQUEST).send(error_1);
                         return [3 /*break*/, 4];
                     case 4: return [2 /*return*/];
