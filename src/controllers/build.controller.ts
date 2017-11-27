@@ -20,6 +20,8 @@ class BuildController {
     const payload = req.body.payload;
     const { state, status, result, number, id } = payload;
 
+    console.log(payload);
+
     const build = new buildModel({
         state,
         status,

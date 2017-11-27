@@ -5,9 +5,12 @@ import { Schema } from "mongoose";
 import { model } from "mongoose";
 
 export interface IBuild extends Document {
-  name: string;
   travis_id: number;
+  state: string;
+  status: number;
+  result: number;
   number: number;
+  payload: any;
   createdAt: Date;
   updateAt: Date;
 }
